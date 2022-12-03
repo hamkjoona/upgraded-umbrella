@@ -1,15 +1,25 @@
 #!/bin/bash
 
 git add .
-git status
 
-echo Komminoidaan ylläolevat muutokset.
-echo Anna commit-viesti:
-read viesti
+git_status=$(git status --porcelain)
+changed_files_count=$(git status --porcelain| wc -l)
 
-print $viesti;
+echo $changed_files_count tiedostoa muuttunut.
+#echo $git_status | wc -l
 
-git commit -am "$viesti"
+if [ $changed_files_count > 0 ]; then
+	echo $git_status
+	echo Komminoidaan ylläolevat tiedostot.
+	echo Anna commit-viesti:
+	read viesti
+
+	print $viesti;
+
+	git commit -am "$viesti"
+else 
+	print ää
+fi
 
 echo "Pusketaanko? (k/e)"
 read pusketaanko
