@@ -17,6 +17,6 @@ read pusketaanko
 if [ $pusketaanko = "k" ]; then
 	read -p "Lahde: [origin]: " lahde
 	lahde=${lade:-origin}
-	echo $lahde
+	git push $lahde master
 fi
 
