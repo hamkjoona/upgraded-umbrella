@@ -1,2 +1,3 @@
 muunnin
-static/*.o
+lib/*.o
+lib/*.so
