@@ -16,7 +16,7 @@ if [ $changed_files_count > 0 ]; then
 
 	print $viesti;
 
-	git commit -am '$viesti'
+	git commit -am "$viesti"
 else 
 	print ää
 fi
