@@ -3,14 +3,15 @@
 git add .
 
 git_status=$(git status --porcelain)
-changed_files_count=$(git status --porcelain| wc -l)
+has_changes=$(echo $git_status| wc -l)
 
-echo $changed_files_count tiedostoa muuttunut.
+#echo $changed_files_count tiedostoa muuttunut.
 #echo $git_status | wc -l
 
-if [ $changed_files_count > 0 ]; then
+if [ $has_changes ]; then
+	echo Komminoitavia muutoksia:
 	echo $git_status
-	echo Komminoidaan ylläolevat tiedostot.
+	echo
 	echo Anna commit-viesti:
 	read viesti
 
@@ -18,7 +19,7 @@ if [ $changed_files_count > 0 ]; then
 
 	git commit -am "$viesti"
 else 
-	print ää
+	Ei muutoksia.
 fi
 
 echo "Pusketaanko? (k/e)"

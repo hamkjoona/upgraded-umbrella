@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "muunnin.h"
 
-
 int main()
 {
 	long double syöte_sentteinä;
