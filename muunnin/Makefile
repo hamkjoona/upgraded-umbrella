@@ -10,5 +10,5 @@ default:
 	$(CC) $(CFLAGS) main.c static/muunnin.o -o muunnin
 
 clean:
-	rm muunnin
-	rm static/muunnin.o
+	rm -r muunnin
+	rm -r static/muunnin.o
