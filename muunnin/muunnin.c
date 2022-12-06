@@ -13,5 +13,4 @@ long double tuumat_senteiksi(long double tuumat)
 	return tuumat / TUUMA_SENTTEINÄ;
 }
 
-
 #endif
