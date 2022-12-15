@@ -1,30 +1,31 @@
 CC = gcc
-CFLAGS = -std=gnu11 -Wall
+CFLAGS = -std=gnu11 -Wall -g
+#CFLAGS = -std=gnu11 -Wall -O3
 
 #SOURCES = muunnin.c
 #HEADERS = *.h
 
 
 muunnin: lib/muunnin.o lib/main.o
-	$(CC) $(CFLAGS) lib/main.o lib/muunnin.o -O3 -o muunnin
+	$(CC) $(CFLAGS) lib/main.o lib/muunnin.o -o $@ 
 
 lib/main.o: main.c
-	$(CC) $(CFLAGS) main.c -g -c -o lib/main.o
+	$(CC) $(CFLAGS) $^  -c -o $@
 
-lib/muunnin.o: muunnin.c muunnin.h
-	$(CC) $(CFLAGS) muunnin.c -c -O3 -o lib/muunnin.o
+lib/muunnin.o: muunnin.c muunnin.h 
+	$(CC) $(CFLAGS) muunnin.c -c -o $@ 
 
 lib/muunnin.so: lib/muunnin.o
-	$(CC) $(CFLAGS) lib/muunnin.o -shared -O3 -o lib/muunnin.so
+	$(CC) $(CFLAGS) lib/muunnin.o -shared -o $@ 
 
-debug:
+debug: muunnin.c main.c
 	$(CC) $(CFLAGS) muunnin.c -c -g -o lib/muunnin_debug.o
-	$(CC) $(CFLAGS) main.c lib/muunnin.o -g -o muunnin_debug
+	$(CC) $(CFLAGS) main.c lib/muunnin_debug.o -g -o muunnin_debug
 #	$(CC) $(CFLAGS) lib/muunnin.o -shared -g -o lib/muunnin_debug.so
 
 
-test: lib/muunnin.so lib/main.o
-	$(CC) $(CFLAGS) lib/main.o -O3 -o test
+shared: lib/muunnin.so lib/main.o
+	$(CC) $(CFLAGS) lib/main.o -O3 -o $@ 
 
 
 run:
@@ -41,7 +42,7 @@ install: muunnin
 clean:
 	rm -f muunnin
 	rm -f muunnin_debug
-	rm -f test
+	rm -f shared 
 	rm -f lib/*.a
 	rm -f lib/*.so
 	rm -f ~/.local/bin/muunnin

@@ -5,9 +5,6 @@ git add .
 git_status=$(git status --porcelain)
 has_changes=$(echo $git_status| wc -l)
 
-#echo $changed_files_count tiedostoa muuttunut.
-#echo $git_status | wc -l
-
 if [ $has_changes ]; then
 	echo Komminoitavia muutoksia:
 	echo $git_status
