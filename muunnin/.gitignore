@@ -1,4 +1,5 @@
 muunnin
 muunnin_debug
+shared
 lib/*.o
 lib/*.so
