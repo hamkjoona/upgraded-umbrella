@@ -33,7 +33,7 @@ run:
 	./muunnin
 
 debug_run:
-	make debugl
+	make debug
 	valgrind --tool=memcheck --leak-check=full ./muunnin_debug 10
 
 install: muunnin
