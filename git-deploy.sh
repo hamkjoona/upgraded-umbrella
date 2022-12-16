@@ -26,8 +26,9 @@ fi
 
 #echo "Pusketaanko? (k/e)[k]"
 #read pusketaanko
-read -p "Pusetaanko? k/e [k]: " pusketaanko
-pusketaanko = ${pusketaanko:-k}
+read -p "Pusketaanko? k/e [k]: " pusketaanko
+
+pusketaanko=${pusketaanko:-k}
 
 if [ $pusketaanko = "k" ]; then
 	read -p "Lahde: [origin]: " lahde
