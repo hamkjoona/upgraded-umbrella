@@ -19,8 +19,6 @@ if [ $has_changes ]; then
 		exit	
 	fi
 
-	print $viesti;
-
 	git commit -am "$viesti"
 else 
 	echo Ei muutoksia.
