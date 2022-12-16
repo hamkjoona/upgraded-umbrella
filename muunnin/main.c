@@ -65,7 +65,7 @@ double long käsittele_syöte(const char* syöte)
 	{
 		char c = syöte[i];
 
-		if (i == 0 && c == '-')
+		if (ulosteen_pituus == 0 && c == '-')
 		{
 			syöte_negatiivinen = true;
 			continue;
