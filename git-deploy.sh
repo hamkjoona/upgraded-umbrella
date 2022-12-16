@@ -33,6 +33,6 @@ if [ $pusketaanko = "k" ]; then
 fi
 
 echo
-Kirjatut muutokset
+echo Kirjatut muutokset
 
 git log --stat -n 1
