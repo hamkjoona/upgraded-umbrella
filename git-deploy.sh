@@ -9,19 +9,19 @@ git_status=$(git status --porcelain)
 
 #if [ $has_changes ]; then
 if [ ! -z "$git_status" ]; then 
-	echo Komminoitavat tiedostot:
+	echo "Komminoitavat tiedostot:"
 	echo "$git_status"
 	echo
 	echo "Anna commit-viesti:"
 	read viesti
 	if [ -z $viesti ]; then
-		echo Viesti on tyhjä!
+		echo "Viesti on tyhjä!"
 		exit	
 	fi
 
 	git commit -am "$viesti"
 else 
-	echo Ei muutoksia.
+	echo "Ei muutoksia."
 fi
 
 echo "Pusketaanko? (k/e)"
@@ -33,9 +33,8 @@ if [ $pusketaanko = "k" ]; then
 	git push $lahde master
 fi
 
-echo
-echo Kirjatut muutokset
-
 if [ ! -z "$git_status" ]; then 
+	echo ""
+	echo Kirjatut muutokset
 	git log --stat -n 1
 fi
