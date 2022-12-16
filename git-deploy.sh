@@ -5,13 +5,14 @@
 git add .
 
 git_status=$(git status --porcelain)
-has_changes=$(echo $git_status| wc -l)
+#has_changes=$(echo $git_status| wc -l)
 
-if [ $has_changes ]; then
+#if [ $has_changes ]; then
+if [ ! -z "$git_status" ]; then 
 	echo Komminoitavat tiedostot:
-	echo $git_status
+	echo "$git_status"
 	echo
-	echo Anna commit-viesti:
+	echo "Anna commit-viesti:"
 	read viesti
 	if [ -z $viesti ]; then
 		echo Viesti on tyhjä!
