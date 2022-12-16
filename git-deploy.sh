@@ -31,4 +31,8 @@ if [ $pusketaanko = "k" ]; then
 	lahde=${lade:-origin}
 	git push $lahde master
 fi
+
+echo
+Kirjatut muutokset
+
 git log --stat -n 1
