@@ -1,7 +1,10 @@
 #ifndef MUUNNIN_H
 #define MUUNNIN_H
 
+#include "muunnin.h"
+
 const long double TUUMA_SENTTEINÄ = 2.54000508001016L;
+
 
 long double sentit_tuumiksi(const long double sentit)
 {

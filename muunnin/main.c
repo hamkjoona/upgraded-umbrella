@@ -131,7 +131,7 @@ int main(int argc, char **argv)
 	{
 		for (int i = 1; i < argc; i++)
 		{
-			assert( ( strlen(syöte) + strlen(argv[i]) ) < MAX_SYÖTTEEN_PITUUS + 1 );
+			assert( ( strlen(syöte) + strlen(argv[i]) ) <= MAX_SYÖTTEEN_PITUUS );
 			strcat(syöte, argv[i]);
 		}
 	}
