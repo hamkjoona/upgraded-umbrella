@@ -13,7 +13,6 @@ if [ $has_changes ]; then
 	echo
 	echo Anna commit-viesti:
 	read viesti
-
 	if [ -z $viesti ]; then
 		echo Viesti on tyhjä!
 		exit	
