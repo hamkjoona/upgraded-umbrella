@@ -1,13 +1,11 @@
 #!/bin/bash
 
-# Ei ota kantaa tunnistukseen, ssh-avaimen ja ssh-add -komennon käyttöä suositellaan pusksemisen sujuvoittamiseksi. 
+# Ei hallitse tunnistautumista, ssh-avaimen ja ssh-add -komennon käyttöä suositellaan pusksemisen sujuvoittamiseksi. 
 
 git add .
 
 git_status=$(git status --porcelain)
-#has_changes=$(echo $git_status| wc -l)
 
-#if [ $has_changes ]; then
 if [ ! -z "$git_status" ]; then 
 	echo "Komminoitavat tiedostot:"
 	echo "$git_status"
@@ -24,8 +22,6 @@ else
 	echo "Ei muutoksia."
 fi
 
-#echo "Pusketaanko? (k/e)[k]"
-#read pusketaanko
 read -p "Pusketaanko? k/e [k]: " pusketaanko
 
 pusketaanko=${pusketaanko:-k}
