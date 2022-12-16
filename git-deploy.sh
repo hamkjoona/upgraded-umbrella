@@ -24,12 +24,14 @@ else
 	echo "Ei muutoksia."
 fi
 
-echo "Pusketaanko? (k/e)"
-read pusketaanko
+#echo "Pusketaanko? (k/e)[k]"
+#read pusketaanko
+read -p "Pusetaanko? k/e [k]: " pusketaanko
+pusketaanko = ${pusketaanko:-k}
 
 if [ $pusketaanko = "k" ]; then
 	read -p "Lahde: [origin]: " lahde
-	lahde=${lade:-origin}
+	lahde=${lahde:-origin}
 	git push $lahde master
 fi
 
