@@ -12,6 +12,7 @@ if [ ! -z "$git_status" ]; then
 	echo
 	echo "Anna commit-viesti:"
 	read viesti
+
 	if [ -z $viesti ]; then
 		echo "Viesti on tyhjä!"
 		exit	
