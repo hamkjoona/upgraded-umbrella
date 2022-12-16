@@ -36,4 +36,6 @@ fi
 echo
 echo Kirjatut muutokset
 
-git log --stat -n 1
+if [ ! -z "$git_status" ]; then 
+	git log --stat -n 1
+fi
